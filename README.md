@@ -1,23 +1,33 @@
-# Fatigue Thresholds prediction
+# Prediction of Fatigue Thresholds and Characteristic Crack Lengths
 
 This repository contains the source code and datasets for the multiscale fatigue model described in the paper:
-**"Prediction of fatigue thresholds and characteristic crack lengths by multiscale simulation of the Kitagawa–Takahashi diagram and cyclic R curve"**
+
+> **"Prediction of fatigue thresholds and characteristic crack lengths by multiscale simulation of the Kitagawa–Takahashi diagram and cyclic R curve"** by Qingzhi Yao and Kazuki Shibanuma.
+
+## Overview
+The repository is divided into two independent, self-contained directories corresponding to the logical workflow of the manuscript. Each directory contains its respective scripts and required data files.
 
 ## Repository Structure
 
-### 1. `multiscale-fatigue-model/`
-- **Purpose**: Forward analysis for fatigue life prediction and model validation.
-- **Description**: This directory contains the code used to reproduce the small-crack growth behavior and S-N data discussed in **Section 3** of the manuscript.
+### 1. `multiscale-fatigue-model/` (Validation on Real Specimens)
+- **Purpose**: Corresponds to **Section 3** of the manuscript. It validates the multiscale fatigue model's capability to reproduce small-crack growth behavior (non-monotonic da/dN curves) and predict fatigue life (S-N curves).
+- **Contents**: 
+  - Forward simulation scripts for real specimen geometries.
+  - Required data files including finite element (FEM) mesh files (`.inp`), stress field data (`.dat`), weight functions, and microstructural properties.
+- **Usage**: Run the main life prediction script within this directory.
 
-### 2. `fatigue-thresholds-prediction-model/`
-- **Purpose**: Inverse analysis for fatigue threshold prediction.
-- **Description**: This directory contains the reformulated framework used to predict the four fatigue threshold parameters ($\sigma_e$, $\Delta K_{th,LC}$, $d_1$, and $d_2$) by constructing the Kitagawa–Takahashi (K-T) diagram and cyclic R-curve, as discussed in **Sections 4 and 5**.
+### 2. `fatigue-thresholds-multiscale-model/` (Threshold Prediction Framework)
+- **Purpose**: Corresponds to **Sections 4 and 5** of the manuscript. It implements the threshold prediction framework on an idealized semi-infinite body. 
+- **Contents**:
+  - **Forward Analysis Script**: Calculates the fatigue life analytically to identify the "critical microstructural configuration" (the weakest link).
+  - **Inverse Analysis Script** (`fatigue_thresholds_prediction.py`): Implements the crack arrest condition (da/dN=0) to determine the critical driving force. It generates the Kitagawa–Takahashi (K-T) diagram and cyclic R-curve, identifying four key parameters: $\sigma_e$, $\Delta K_{th,LC}$, $d_1$, and $d_2$.
+  - Microstructural and material property datasets (`N50R_*.csv`).
+- **Usage**: Run the forward analysis script first to find the critical configuration, followed by the inverse analysis script to predict the thresholds.
 
 ## Requirements
 - Python 3.x
-- Libraries: `numpy`, `pandas`, `scipy`
+- Required libraries: `numpy`, `pandas`, `scipy`
 
-## Usage
-1. Navigate to the desired folder.
-2. Ensure all required `N50R_*.csv` data files are present in the same directory as the script.
-3. Run the Python script to generate the results.
+Install the dependencies using:
+```bash
+pip install numpy pandas scipy
