@@ -1,4 +1,4 @@
-# Prediction of Fatigue Thresholds and Characteristic Crack Lengths
+# Fatigue Thresholds prediction
 
 This repository contains the source code and datasets for the multiscale fatigue model described in the paper:
 **"Prediction of fatigue thresholds and characteristic crack lengths by multiscale simulation of the Kitagawa–Takahashi diagram and cyclic R curve"**
