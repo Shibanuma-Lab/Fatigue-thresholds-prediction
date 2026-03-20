@@ -9,7 +9,7 @@ This repository contains the source code and datasets for the multiscale fatigue
 - **Purpose**: Forward analysis for fatigue life prediction and model validation.
 - **Description**: This directory contains the code used to reproduce the small-crack growth behavior and S-N data discussed in **Section 3** of the manuscript.
 
-### 2. `fatigue-thresholds-multiscale-model/`
+### 2. `fatigue-thresholds-prediction-model/`
 - **Purpose**: Inverse analysis for fatigue threshold prediction.
 - **Description**: This directory contains the reformulated framework used to predict the four fatigue threshold parameters ($\sigma_e$, $\Delta K_{th,LC}$, $d_1$, and $d_2$) by constructing the Kitagawa–Takahashi (K-T) diagram and cyclic R-curve, as discussed in **Sections 4 and 5**.
 
