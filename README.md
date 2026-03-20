@@ -13,16 +13,16 @@ The repository is divided into two independent, self-contained directories corre
 - **Purpose**: Corresponds to **Section 3** of the manuscript. It validates the multiscale fatigue model's capability to reproduce small-crack growth behavior (non-monotonic da/dN curves) and predict fatigue life (S-N curves).
 - **Contents**: 
   - Forward simulation scripts for real specimen geometries.
-  - Required data files including finite element (FEM) mesh files (`.inp`), stress field data (`.dat`), weight functions, and microstructural properties.
+  - Required data files including finite element (FEM) mesh files (`.inp`), strain field data (`.dat`), weight functions, and microstructural information.
 - **Usage**: Run the main life prediction script within this directory.
 
 ### 2. `fatigue-thresholds-multiscale-model/` (Threshold Prediction Framework)
 - **Purpose**: Corresponds to **Sections 4 and 5** of the manuscript. It implements the threshold prediction framework on an idealized semi-infinite body. 
 - **Contents**:
-  - **Forward Analysis Script**: Calculates the fatigue life analytically to identify the "critical microstructural configuration" (the weakest link).
+  - **Forward Analysis Script** (`forward_analysis.py`): Calculates the fatigue life analytically to generate the reference S-N curve (failure probability) and determine the reference applied stress amplitude ($\sigma_{ref}$).
   - **Inverse Analysis Script** (`fatigue_thresholds_prediction.py`): Implements the crack arrest condition (da/dN=0) to determine the critical driving force. It generates the Kitagawa–Takahashi (K-T) diagram and cyclic R-curve, identifying four key parameters: $\sigma_e$, $\Delta K_{th,LC}$, $d_1$, and $d_2$.
-  - Microstructural and material property datasets (`N50R_*.csv`).
-- **Usage**: Run the forward analysis script first to find the critical configuration, followed by the inverse analysis script to predict the thresholds.
+  - Microstructural information..
+- **Usage**: Run the forward analysis script first to obtain the reference stress and find the critical configuration, followed by the inverse analysis script to predict the thresholds.
 
 ## Requirements
 - Python 3.x
