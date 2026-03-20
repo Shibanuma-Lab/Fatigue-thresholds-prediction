@@ -22,7 +22,7 @@ The repository is divided into two independent, self-contained directories corre
   - **Forward Analysis Script** (`forward_analysis.py`): Calculates the fatigue life analytically to generate the reference S-N curve (failure probability) and determine the reference applied stress amplitude ($\sigma_{ref}$).
   - **Inverse Analysis Script** (`fatigue_thresholds_prediction.py`): Implements the crack arrest condition (da/dN=0) to determine the critical driving force. It generates the Kitagawa–Takahashi (K-T) diagram and cyclic R-curve, identifying four key parameters: $\sigma_e$, $\Delta K_{th,LC}$, $d_1$, and $d_2$.
   - Microstructural information..
-- **Usage**: Run the forward analysis script first to obtain the reference stress and find the critical configuration, followed by the inverse analysis script to predict the thresholds.
+- **Usage**: Run the forward analysis script first to obtain the reference stress, followed by the inverse analysis script to predict the thresholds.
 
 ## Requirements
 - Python 3.x
